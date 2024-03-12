@@ -1,2 +1,2 @@
-# rix
+# Digital Rain Matrix
 matrixcode

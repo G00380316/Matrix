@@ -1,0 +1,8 @@
+# Site settings 
+title: Digital Rain Modern C++ Project Blog
+author:
+  name: Connor Ngouana
+description: "a blog"
+
+# Build settings
+remote_theme: jekyll/minima

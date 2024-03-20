@@ -12,12 +12,12 @@ ThreadManager::~ThreadManager() {
 
 void ThreadManager::startAllGenerators() {
     for (auto& generator : generators) {
-        threads.emplace_back(&DigitalRain::startGenerating, &generator);
-        threads.back().detach();
+        threads.emplace_back(&DigitalRain::startGenerating, &generator);//Creates Thread
+        threads.back().detach(); //Runs Thread seperately 
     }
 }
 
-void ThreadManager::joinAllThreads() {
+void ThreadManager::joinAllThreads() {//Makes all Threads wait for each other 
     for (auto& thread : threads) {
         if (thread.joinable()) {
             thread.join();

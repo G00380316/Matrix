@@ -1,8 +1,8 @@
-# Site settings 
+# Site settings
 title: Digital Rain Modern C++ Project Blog
 author:
-  name: Connor Ngouana
-description: "a blog"
+  name: Enoch Abiodun
+description: "A blog by Enoch Abiodun"
 
 # Build settings
 remote_theme: jekyll/minima

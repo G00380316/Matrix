@@ -19,6 +19,8 @@ void ColourChanger::startChangingColours() {
         //std::this_thread::sleep_for(std::chrono::seconds(5));
         changeColour("\033[33m"); //yellow
         //std::this_thread::sleep_for(std::chrono::seconds(5));
+        changeColour("\033[35m"); //Magenta
+        //std::this_thread::sleep_for(std::chrono::seconds(5));
     }
 }
 

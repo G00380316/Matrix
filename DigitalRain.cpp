@@ -15,7 +15,7 @@ void DigitalRain::startGenerating() {
     std::vector<char> randomCharacters;
     std::vector<char> charactersBuffer;
     CONSOLE_SCREEN_BUFFER_INFO csbi;
-
+    
     while (true) {
         randomCharacters = randomGenerator.generateRandomCharacters(10);
         GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi);
@@ -30,24 +30,28 @@ void DigitalRain::startGenerating() {
         }
         if (charactersBuffer.size() == 10) {
             for (const auto& character : charactersBuffer) {
+                mtx.lock();
                 SetCursorPosition();
                 std::cout << character;
                 std::cout.flush();
                 //csbi.dwCursorPosition.X - 1;
+                mtx.unlock();
             }
 
             // Check if the console window has reached the bottom
             CONSOLE_SCREEN_BUFFER_INFO csbi;
             GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi);
             if (csbi.dwCursorPosition.Y >= csbi.dwSize.Y - 1) {
+                mtx.lock();
                 COORD coord = { 0, 0 };
                 DWORD written;
                 FillConsoleOutputCharacter(GetStdHandle(STD_OUTPUT_HANDLE), ' ', csbi.dwSize.X * csbi.dwSize.Y, coord, &written);
                 SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+                mtx.unlock();
             }
             charactersBuffer.clear();
         }
-        std::this_thread::sleep_for(std::chrono::milliseconds(1000)); // Sleep for 1 second
+        std::this_thread::sleep_for(std::chrono::milliseconds(750)); // Sleep for 1 second normally but to see different patterns change to you liking
     }
 
     colourThread.join(); // Wait for the colour changing thread to finish
@@ -58,6 +62,6 @@ void DigitalRain::SetCursorPosition() {
     COORD cursorPosition;
     GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi);
     cursorPosition.Y = csbi.dwCursorPosition.Y + 1; // Move to the line below
-    cursorPosition.X = csbi.dwCursorPosition.X - 1; // Move to the beginning of the line
+    cursorPosition.X = csbi.dwCursorPosition.X - 1; // Move one space back
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), cursorPosition);
 }

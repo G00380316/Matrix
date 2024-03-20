@@ -18,6 +18,7 @@ public:
 private:
     RandomGenerator randomGenerator;
     ColourChanger colourChanger;
+    std::mutex mtx;
     int row;
     int col;
 };

@@ -2,14 +2,18 @@
 //Date: 19/03/2024
 //Project: Digital Rain
 
+//Size of the console makes a difference so please run in maximised or fullscreen
+//Also let it run for while to correct itself
+//The more threads the less time it takes to correct compare 10 generators to 5
+
 #include <iostream>
 #include "DigitalRain.h"
 #include "ThreadManager.h"
-#include <mutex>
 
 int main() {
 
-    /* DigitalRain generator1;
+    /*
+    DigitalRain generator1;
     DigitalRain generator2;
     DigitalRain generator3;
     DigitalRain generator4;
@@ -30,7 +34,7 @@ int main() {
     thread5.detach();
     */
 
-    std::vector<DigitalRain> generators(50); // Create 5 instances of RandomColourGenerator
+    std::vector<DigitalRain> generators(5); // Create 5 instances of RandomColourGenerator (the more instances the fast and more vectors of characters and diferent patterens)
 
     ThreadManager threadManager(generators);
 
@@ -40,13 +44,13 @@ int main() {
     //threadManager.joinAllThreads();
     
     while (true) {
-        std::cout << "Press 'q' to quit: ";
+        std::cout << "Press 'q' to quit: "; // You want see this print but you can press q then enter to quit
         char input;
         std::cin >> input;
         if (input == 'q') {
             break;
         }
-        std::this_thread::sleep_for(std::chrono::milliseconds(500));
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     return 0;

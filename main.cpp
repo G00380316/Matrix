@@ -4,7 +4,7 @@
 
 #include <iostream>
 #include "DigitalRain.h"
-#include "../Digital Rain/ThreadManager.h"
+#include "ThreadManager.h"
 #include <mutex>
 
 int main() {

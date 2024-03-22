@@ -1,12 +1,9 @@
 ---
 layout: post
-title: A Project in Modern C++
+title: A Digital-Rain Project in Modern C++
 tags: cpp coding project
-categories: demo
+author: Enoch Abiodun
 ---
-
-Digital-Rain Cpp Project
-Enoch Abiodun
 
 Within this blog post, You and I will explore in depth and detail involved in coding a Digital Rain Matrix using Cpp (C++). We’ll discuss the necessary guidelines, outline our approach on how we ourselves could code such an application and then provide step-by-step analysis on how I managed to do so for my Final year Cpp mini-Project.
 

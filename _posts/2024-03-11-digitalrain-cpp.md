@@ -24,6 +24,7 @@ Here I will talk about more of how I came up with an approach to coding a Digita
 The Random Generator class begins by initializing a set of characters to choose from. In our implementation, we've included uppercase letters (A-Z), lowercase letters (a-z), digits (0-9), and a selection of special characters. By populating a vector named characters with this diverse set of characters, we ensure that our random generator can produce a wide range of outputs, adding richness to our digital rain effect.
 
 `
+
 RandomGenerator::RandomGenerator() {
 
     for (char c = 'A'; c <= 'Z'; ++c) {
@@ -48,6 +49,7 @@ RandomGenerator::RandomGenerator() {
         characters.push_back(c);
     }
 }
+
 `
  
 *2. Generating Random Characters:*
@@ -56,6 +58,7 @@ The core functionality of the RandomGenerator class lies in the generateRandomCh
  Colour plays a significant role in enhancing the visual appeal of applications, especially when creating dynamic and immersive experiences like digital rain simulations. In this blog post, we'll delve into the implementation of a C++ class called ColourChanger, which is designed to add colour-changing effects to our digital rain matrix. By understanding this code, you'll gain insights into how to incorporate colour manipulation into your own projects, elevating their aesthetics and user engagement.
 
 `
+
 std::vector<char> RandomGenerator::generateRandomCharacters(int numCharacters) {
     std::vector<char> randomCharacters;
 
@@ -71,6 +74,7 @@ std::vector<char> RandomGenerator::generateRandomCharacters(int numCharacters) {
 
     return randomCharacters;
 }
+
 `
 
 *3. Initialization and Control:*
@@ -78,6 +82,7 @@ std::vector<char> RandomGenerator::generateRandomCharacters(int numCharacters) {
 The ColourChanger class begins with a constructor that initializes a Boolean variable isRunning to false, indicating that the colour-changing process is not yet active. The startChangingColours method controls the colour-changing process by entering a loop while isRunning is true. Within this loop, calls to the change Colour method are made successively with different ANSI escape codes representing various colours, creating a cyclic colour-changing effect. By toggling isRunning appropriately, we can start or stop the colour-changing process as needed.
 
 `
+
 ColourChanger::ColourChanger() : isRunning(false) {}
 
 // ANSI escape code for colorchange
@@ -97,6 +102,7 @@ void ColourChanger::startChangingColours() {
         //std::this_thread::sleep_for(std::chrono::seconds(5));
     }
 }
+
 `
  
 *4. Colour Manipulation:*
@@ -104,6 +110,7 @@ void ColourChanger::startChangingColours() {
 The changeColour method is responsible for changing the foreground colour of text in the console. It accepts a string parameter colourCode, which represents the ANSI escape code for the desired colour. By outputting this code to the console using std::cout, we can change the colour of subsequent text accordingly. Similarly, the changeBackgroundColour method can be implemented to change the background colour of text, providing further customization options for enhancing visual effects.
 
 `
+
 void ColourChanger::changeColour(const std::string& colorCode) {
     std::cout << colorCode;
 }
@@ -111,6 +118,7 @@ void ColourChanger::changeColour(const std::string& colorCode) {
 void ColourChanger::changeBackgroundColour(const std::string& colorCode) {
     std::cout << colorCode;
 }
+
 `
 
 In the realm of programming, creating captivating visual effects can greatly enhance user experiences. One such effect is the mesmerizing digital rain matrix, reminiscent of scenes from movies like "The Matrix." In this blog post, we'll explore the implementation of a C++ class called Digital Rain, which generates a digital rain matrix effect in the console. By understanding this code, you'll gain insights into how to simulate falling characters, manage console output, and incorporate multithreading for dynamic colour-changing effects.
@@ -122,6 +130,7 @@ In the realm of programming, creating captivating visual effects can greatly enh
 The Digital Rain class begins by initializing its components, including instances of Colour Changer and Random Generator. To achieve dynamic colour changes, a separate thread is launched to execute the startChangingColours method of the Colour Changer class. This ensures that colour changes occur independently of the main execution flow, enhancing the visual appeal of the digital rain matrix.
 
 `
+
 DigitalRain::DigitalRain() {}
 
 void DigitalRain::startGenerating() {
@@ -131,6 +140,7 @@ void DigitalRain::startGenerating() {
     CONSOLE_SCREEN_BUFFER_INFO csbi;
 
     //To be continued
+    
 `
  
 *6. Character Generation and Console Output:*
@@ -183,6 +193,7 @@ while (true) {
 
     colourThread.join(); // Wait for the colour changing thread to finish
 }
+
 `
 
 *Multithreading and Dynamic Colour Changes:*

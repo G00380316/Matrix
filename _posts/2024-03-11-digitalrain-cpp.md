@@ -28,26 +28,26 @@ Here I will talk about more of how I came up with an approach to coding a Digita
 
 The Random Generator class begins by initializing a set of characters to choose from. In our implementation, we've included uppercase letters (A-Z), lowercase letters (a-z), digits (0-9), and a selection of special characters. By populating a vector named characters with this diverse set of characters, we ensure that our random generator can produce a wide range of outputs, adding richness to our digital rain effect.
 
-<img src="https://github.com/G00380316/Matrix/blob/main/docs/assets/images/Picture1.png" width="400" height="300">
+<img src="https://github.com/G00380316/Matrix/blob/main/docs/assets/images/Picture1.png" width="659" height="424">
  
 2. Generating Random Characters:
 
 The core functionality of the RandomGenerator class lies in the generateRandomCharacters method. This method takes an integer parameter numCharacters, indicating the number of random characters to generate. Inside the method, we use the C++ <random> library to create a random number generator (std::mt19937) and a uniform distribution (std::uniform_int_distribution) to select random indices from the characters vector. By iterating numCharacters times, we randomly select characters from the characters vector based on the generated indices and store them in a vector named randomCharacters. Finally, we return this vector containing the randomly generated characters.
  Colour plays a significant role in enhancing the visual appeal of applications, especially when creating dynamic and immersive experiences like digital rain simulations. In this blog post, we'll delve into the implementation of a C++ class called ColourChanger, which is designed to add colour-changing effects to our digital rain matrix. By understanding this code, you'll gain insights into how to incorporate colour manipulation into your own projects, elevating their aesthetics and user engagement.
 
-<img src="https://github.com/G00380316/Matrix/blob/302b39313411abcaaaf32fe9a1f335ff3e88e0bc/docs/assets/images/Picture2.png" width="400" height="300">
+<img src="https://github.com/G00380316/Matrix/blob/302b39313411abcaaaf32fe9a1f335ff3e88e0bc/docs/assets/images/Picture2.png" width="661" height="230">
 
 3. Initialization and Control:
 
 The ColourChanger class begins with a constructor that initializes a Boolean variable isRunning to false, indicating that the colour-changing process is not yet active. The startChangingColours method controls the colour-changing process by entering a loop while isRunning is true. Within this loop, calls to the change Colour method are made successively with different ANSI escape codes representing various colours, creating a cyclic colour-changing effect. By toggling isRunning appropriately, we can start or stop the colour-changing process as needed.
 
-<img src="https://github.com/G00380316/Matrix/blob/302b39313411abcaaaf32fe9a1f335ff3e88e0bc/docs/assets/images/Picture3.png" width="400" height="300">
+<img src="https://github.com/G00380316/Matrix/blob/302b39313411abcaaaf32fe9a1f335ff3e88e0bc/docs/assets/images/Picture3.png" width="658" height="267">
  
 4. Colour Manipulation:
 
 The changeColour method is responsible for changing the foreground colour of text in the console. It accepts a string parameter colourCode, which represents the ANSI escape code for the desired colour. By outputting this code to the console using std::cout, we can change the colour of subsequent text accordingly. Similarly, the changeBackgroundColour method can be implemented to change the background colour of text, providing further customization options for enhancing visual effects.
 
-<img src="https://github.com/G00380316/Matrix/blob/302b39313411abcaaaf32fe9a1f335ff3e88e0bc/docs/assets/images/Picture4.png" width="400" height="300">
+<img src="https://github.com/G00380316/Matrix/blob/302b39313411abcaaaf32fe9a1f335ff3e88e0bc/docs/assets/images/Picture4.png" width="652" height="126">
  
 In the realm of programming, creating captivating visual effects can greatly enhance user experiences. One such effect is the mesmerizing digital rain matrix, reminiscent of scenes from movies like "The Matrix." In this blog post, we'll explore the implementation of a C++ class called Digital Rain, which generates a digital rain matrix effect in the console. By understanding this code, you'll gain insights into how to simulate falling characters, manage console output, and incorporate multithreading for dynamic colour-changing effects.
 
@@ -57,13 +57,13 @@ In the realm of programming, creating captivating visual effects can greatly enh
    
 The Digital Rain class begins by initializing its components, including instances of Colour Changer and Random Generator. To achieve dynamic colour changes, a separate thread is launched to execute the startChangingColours method of the Colour Changer class. This ensures that colour changes occur independently of the main execution flow, enhancing the visual appeal of the digital rain matrix.
 
- <img src="https://github.com/G00380316/Matrix/blob/302b39313411abcaaaf32fe9a1f335ff3e88e0bc/docs/assets/images/Picture6.png" width="400" height="300">
+ <img src="https://github.com/G00380316/Matrix/blob/302b39313411abcaaaf32fe9a1f335ff3e88e0bc/docs/assets/images/Picture6.png" width="602" height="141">
  
 6. Character Generation and Console Output:
 
 Within the main loop of the startGenerating method, random characters are generated using the RandomGenerator class. These characters are then displayed in the console, simulating the falling raindrops of the digital matrix. The position of each character is managed to create the illusion of movement, while checks ensure that the console window boundaries are respected. If the bottom of the console window is reached, the screen is cleared to maintain the continuous flow of the digital rain matrix.
 
- <img src="https://github.com/G00380316/Matrix/blob/302b39313411abcaaaf32fe9a1f335ff3e88e0bc/docs/assets/images/Picture7.png" width="400" height="300">
+ <img src="https://github.com/G00380316/Matrix/blob/302b39313411abcaaaf32fe9a1f335ff3e88e0bc/docs/assets/images/Picture7.png" width="644" height="398">
  
 Multithreading and Dynamic Colour Changes:
 
@@ -94,10 +94,6 @@ Enoch Abiodun is a software engineer with a passion for algorithms and problem-s
 G00380316/Matrix (github.com)
 
 Call to Action:
+
 If you found this blog post helpful, consider subscribing to our newsletter for more coding tutorials and tips. Don't forget to share this post with your friends and colleagues who might also benefit from it!
 
-
-
-You can add an impage that has been uploaded to the repository in a /docs/assets/images folder.
-
-<img src="https://raw.githubusercontent.com/melgineer/digital-rain-test-cpp/main/docs/assets/images/DigitalRainDev1.png" width="400" height="300">

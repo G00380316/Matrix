@@ -17,18 +17,22 @@ void DigitalRain::startGenerating() {
     CONSOLE_SCREEN_BUFFER_INFO csbi;
     
     while (true) {
-        randomCharacters = randomGenerator.generateRandomCharacters(10);
+        mtx.lock();
+        randomCharacters = randomGenerator.generateRandomCharacters(5);
         GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi);
         int numSpaces = rand() % csbi.dwSize.X;
+        mtx.unlock();
 
         for (int i = 0; i < numSpaces; ++i) {
+            mtx.lock();
             std::cout << ' ';
+            mtx.unlock();
         }
 
         for (const auto& character : randomCharacters) {
             charactersBuffer.push_back(character);
         }
-        if (charactersBuffer.size() == 10) {
+        if (charactersBuffer.size() == 5) {
             for (const auto& character : charactersBuffer) {
                 mtx.lock();
                 SetCursorPosition();

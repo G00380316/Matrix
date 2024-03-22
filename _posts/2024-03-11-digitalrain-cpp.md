@@ -51,7 +51,7 @@ The changeColour method is responsible for changing the foreground colour of tex
  
 In the realm of programming, creating captivating visual effects can greatly enhance user experiences. One such effect is the mesmerizing digital rain matrix, reminiscent of scenes from movies like "The Matrix." In this blog post, we'll explore the implementation of a C++ class called Digital Rain, which generates a digital rain matrix effect in the console. By understanding this code, you'll gain insights into how to simulate falling characters, manage console output, and incorporate multithreading for dynamic colour-changing effects.
 
- <img src="https://github.com/G00380316/Matrix/blob/302b39313411abcaaaf32fe9a1f335ff3e88e0bc/docs/assets/images/Picture5.png" width="800" height="400">
+ <img src="https://github.com/G00380316/Matrix/blob/302b39313411abcaaaf32fe9a1f335ff3e88e0bc/docs/assets/images/Picture5.png" width="1200" height="400">
  
 5. Initialization and Threading:
    
